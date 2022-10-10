@@ -47,6 +47,10 @@ while True:
     
     if detection:
         output.write(frame)
+        if cv2.waitKey(1) == "c":
+            cv2.imwrite(f'images/{datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")}_c1.png', frame)
+            cv2.destroyAllWindows()
+            cv2.imshow()
 
     for (x, y, width, height) in bodies:
         cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 3)
