@@ -58,8 +58,15 @@ while True:
     # Showing the video each frame
     cv2.imshow("Detector", frame)
 
-    if cv2.waitKey(1) == "q":
+    if cv2.waitKey(1) == ord("s"): # Pressing "s" save current frame
+        print("Screenshot taken!")
+        crr_time = datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
+        cv2.imwrite(f"{crr_time}.jpg", frame)
+
+    if cv2.waitKey(1) == ord("q"):
         break
+
+
 
 output.release()
 cap.release()
